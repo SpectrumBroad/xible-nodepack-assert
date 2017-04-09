@@ -1,0 +1,19 @@
+{
+	"name": "xible-nodepack-assert",
+	"version": "0.0.1",
+	"description": "Set of assertion nodes for Xible",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/spectrumbroad/xible-nodepack-assert"
+	},
+	"bugs": {
+		"url": "https://github.com/spectrumbroad/xible-nodepack-assert/issues",
+		"email": "bugs@xible.io"
+	},
+	"keywords": [
+		"xible",
+		"assert",
+    "nodepack"
+	]
+}
