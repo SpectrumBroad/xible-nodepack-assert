@@ -1,6 +1,6 @@
 {
 	"name": "xible-nodepack-assert",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Set of assertion nodes for Xible",
 	"license": "MIT",
 	"repository": {
