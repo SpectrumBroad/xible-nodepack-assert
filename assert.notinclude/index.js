@@ -1,5 +1,7 @@
 module.exports = function(NODE) {
 
+	const AssertionError = require('../AssertionError');
+
 	let valuesIn = NODE.getInputByName('values');
 
 	let doneOut = NODE.getOutputByName('done');
@@ -7,11 +9,13 @@ module.exports = function(NODE) {
 	let triggerIn = NODE.getInputByName('trigger');
 	triggerIn.on('trigger', (conn, state) => {
 
+		const err = new AssertionError(NODE.data.message);
+
 		valuesIn.getValues(state)
 			.then((values) => {
 
 				if (!values.length) {
-					NODE.fail(`AssertionError: ${NODE.data.message}`, state);
+					NODE.error(err, state);
 					return;
 				}
 
@@ -22,7 +26,7 @@ module.exports = function(NODE) {
 					}
 
 					if (values[i].indexOf(NODE.data.search) > -1) {
-						NODE.fail(`AssertionError: ${NODE.data.message}`, state);
+						NODE.error(err, state);
 						return;
 					}
 
