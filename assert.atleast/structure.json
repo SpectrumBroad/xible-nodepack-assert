@@ -1,21 +1,21 @@
 {
-	"name": "assert.atleast",
-	"type": "action",
-	"description": "Asserts that all given values are greater than or equal to (>=) the baseline.",
-	"inputs": {
-		"trigger": {
-			"type": "trigger",
-			"description": "Trigger the assertion."
-		},
-		"values": {
-			"type": null,
-			"description": "One or more values each expected to be greater or equal (>=) the baseline."
-		}
-	},
-	"outputs": {
-		"done": {
-			"type": "trigger",
-			"description": "Triggered when assertion succeeds."
-		}
-	}
+  "name": "assert.atleast",
+  "type": "action",
+  "description": "Asserts that all given values are greater than or equal to (>=) the baseline.",
+  "inputs": {
+    "trigger": {
+      "type": "trigger",
+      "description": "Trigger the assertion."
+    },
+    "values": {
+      "type": null,
+      "description": "One or more values each expected to be greater or equal (>=) the baseline."
+    }
+  },
+  "outputs": {
+    "done": {
+      "type": "trigger",
+      "description": "Triggered when assertion succeeds."
+    }
+  }
 }

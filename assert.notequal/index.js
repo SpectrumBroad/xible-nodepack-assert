@@ -1,38 +1,32 @@
-module.exports = function(NODE) {
+'use strict';
 
-	const AssertionError = require('../AssertionError');
+module.exports = (NODE) => {
+  const AssertionError = require('../AssertionError');
 
-	let valuesIn = NODE.getInputByName('values');
+  const valuesIn = NODE.getInputByName('values');
 
-	let doneOut = NODE.getOutputByName('done');
+  const doneOut = NODE.getOutputByName('done');
 
-	let triggerIn = NODE.getInputByName('trigger');
-	triggerIn.on('trigger', (conn, state) => {
+  const triggerIn = NODE.getInputByName('trigger');
+  triggerIn.on('trigger', (conn, state) => {
+    const err = new AssertionError(NODE.data.message);
 
-		const err = new AssertionError(NODE.data.message);
+    valuesIn.getValues(state)
+    .then((values) => {
+      if (!values.length || values.length === 1) {
+        doneOut.trigger(state);
+        return;
+      }
 
-		valuesIn.getValues(state)
-			.then((values) => {
+      const firstVal = values[0];
+      for (let i = 1; i < values.length; i += 1) {
+        if (values[i] === firstVal) {
+          NODE.error(err, state);
+          return;
+        }
+      }
 
-				if (!values.length || values.length === 1) {
-					doneOut.trigger(state);
-					return;
-				}
-
-				let firstVal = values[0];
-				for (let i = 1; i < values.length; ++i) {
-
-					if (values[i] === firstVal) {
-						NODE.error(err, state);
-						return;
-					}
-
-				}
-
-				doneOut.trigger(state);
-
-			});
-
-	});
-
+      doneOut.trigger(state);
+    });
+  });
 };

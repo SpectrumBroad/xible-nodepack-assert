@@ -1,18 +1,18 @@
 {
-	"name": "assert.notequal",
-	"type": "action",
-	"description": "Tests shallow, coercive inequality between the given values.",
-	"inputs": {
-		"trigger": {
-			"type": "trigger"
-		},
-		"values": {
-			"type": null
-		}
-	},
-	"outputs": {
-		"done": {
-			"type": "trigger"
-		}
-	}
+  "name": "assert.notequal",
+  "type": "action",
+  "description": "Tests shallow, coercive inequality between the given values.",
+  "inputs": {
+    "trigger": {
+      "type": "trigger"
+    },
+    "values": {
+      "type": null
+    }
+  },
+  "outputs": {
+    "done": {
+      "type": "trigger"
+    }
+  }
 }

@@ -1,21 +1,21 @@
 {
-	"name": "assert.include",
-	"type": "action",
-	"description": "Asserts that the given search exists in all given values.",
-	"inputs": {
-		"trigger": {
-			"type": "trigger",
-			"description": "Trigger the assertion."
-		},
-		"values": {
-			"type": null,
-			"description": "One or more values each expected to contain the search. Every value must be either a string or an array."
-		}
-	},
-	"outputs": {
-		"done": {
-			"type": "trigger",
-			"description": "Triggered when assertion succeeds."
-		}
-	}
+  "name": "assert.include",
+  "type": "action",
+  "description": "Asserts that the given search exists in all given values.",
+  "inputs": {
+    "trigger": {
+      "type": "trigger",
+      "description": "Trigger the assertion."
+    },
+    "values": {
+      "type": null,
+      "description": "One or more values each expected to contain the search. Every value must be either a string or an array."
+    }
+  },
+  "outputs": {
+    "done": {
+      "type": "trigger",
+      "description": "Triggered when assertion succeeds."
+    }
+  }
 }

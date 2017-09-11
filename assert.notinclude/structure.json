@@ -1,21 +1,21 @@
 {
-	"name": "assert.notinclude",
-	"type": "action",
-	"description": "Asserts that the given search exists exists in non of the given values.",
-	"inputs": {
-		"trigger": {
-			"type": "trigger",
-			"description": "Trigger the assertion."
-		},
-		"values": {
-			"type": null,
-			"description": "One or more values each expected not to contain the search."
-		}
-	},
-	"outputs": {
-		"done": {
-			"type": "trigger",
-			"description": "Triggered when assertion succeeds."
-		}
-	}
+  "name": "assert.notinclude",
+  "type": "action",
+  "description": "Asserts that the given search exists exists in non of the given values.",
+  "inputs": {
+    "trigger": {
+      "type": "trigger",
+      "description": "Trigger the assertion."
+    },
+    "values": {
+      "type": null,
+      "description": "One or more values each expected not to contain the search."
+    }
+  },
+  "outputs": {
+    "done": {
+      "type": "trigger",
+      "description": "Triggered when assertion succeeds."
+    }
+  }
 }

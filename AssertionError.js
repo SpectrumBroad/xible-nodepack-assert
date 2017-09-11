@@ -1,8 +1,10 @@
+'use strict';
+
 class AssertionError extends Error {
-	constructor() {
-		super(...arguments);
-		this.name = 'AssertionError';
-	}
+  constructor(...args) {
+    super(...args);
+    this.name = 'AssertionError';
+  }
 }
 
 module.exports = AssertionError;

@@ -1,21 +1,21 @@
 {
-	"name": "assert.equal",
-	"type": "action",
-	"description": "Tests shallow, coercive equality between the given values.",
-	"inputs": {
-		"trigger": {
-			"type": "trigger",
-			"description": "Trigger the assertion."
-		},
-		"values": {
-			"type": null,
-			"description": "Values that should all equal eachother. If no or only one value is given, the assertion always succeeds."
-		}
-	},
-	"outputs": {
-		"done": {
-			"type": "trigger",
-			"description": "Triggered when assertion succeeds."
-		}
-	}
+  "name": "assert.equal",
+  "type": "action",
+  "description": "Tests shallow, coercive equality between the given values.",
+  "inputs": {
+    "trigger": {
+      "type": "trigger",
+      "description": "Trigger the assertion."
+    },
+    "values": {
+      "type": null,
+      "description": "Values that should all equal eachother. If no or only one value is given, the assertion always succeeds."
+    }
+  },
+  "outputs": {
+    "done": {
+      "type": "trigger",
+      "description": "Triggered when assertion succeeds."
+    }
+  }
 }

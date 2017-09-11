@@ -1,42 +1,36 @@
-module.exports = function(NODE) {
+'use strict';
 
-	const AssertionError = require('../AssertionError');
+module.exports = (NODE) => {
+  const AssertionError = require('../AssertionError');
 
-	let valuesIn = NODE.getInputByName('values');
+  const valuesIn = NODE.getInputByName('values');
 
-	let doneOut = NODE.getOutputByName('done');
+  const doneOut = NODE.getOutputByName('done');
 
-	let triggerIn = NODE.getInputByName('trigger');
-	triggerIn.on('trigger', (conn, state) => {
+  const triggerIn = NODE.getInputByName('trigger');
+  triggerIn.on('trigger', (conn, state) => {
+    const err = new AssertionError(NODE.data.message);
 
-		const err = new AssertionError(NODE.data.message);
+    valuesIn.getValues(state)
+    .then((values) => {
+      if (!values.length) {
+        NODE.error(err, state);
+        return;
+      }
 
-		valuesIn.getValues(state)
-			.then((values) => {
+      for (let i = 0; i < values.length; i += 1) {
+        if (typeof values[i] !== 'string' && !Array.isArray(values[i])) {
+          NODE.error(err, state);
+          return;
+        }
 
-				if (!values.length) {
-					NODE.error(err, state);
-					return;
-				}
+        if (values[i].indexOf(NODE.data.search) === -1) {
+          NODE.error(err, state);
+          return;
+        }
+      }
 
-				for (let i = 0; i < values.length; ++i) {
-
-					if (typeof values[i] !== 'string' && !Array.isArray(values[i])) {
-						NODE.error(err, state);
-						return;
-					}
-
-					if (values[i].indexOf(NODE.data.search) === -1) {
-						NODE.error(err, state);
-						return;
-					}
-
-				}
-
-				doneOut.trigger(state);
-
-			});
-
-	});
-
+      doneOut.trigger(state);
+    });
+  });
 };
